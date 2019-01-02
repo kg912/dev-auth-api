@@ -5,7 +5,6 @@ const bodyParser = require("body-parser"); //middleware
 const morgan = require("morgan"); //middleware
 const router = require("./router");
 const mongoose = require("mongoose");
-const config = require("./config");
 
 const app = express();
 
@@ -13,7 +12,7 @@ const app = express();
 
 //DB setup
 mongoose.connect(
-  config.mongoUrl,
+	process.env.MONGO_URL,
   { useNewUrlParser: true }
 );
 
